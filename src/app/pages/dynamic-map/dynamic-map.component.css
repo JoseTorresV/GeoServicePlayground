@@ -1,0 +1,16 @@
+.linkInput {
+    position: absolute;
+    display: flex;
+    z-index: 2;
+    background: whitesmoke;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 10px;
+    flex-direction: column;
+    left: 1rem;
+    bottom: 1rem;
+}
+
+.marginInfo {
+    margin-bottom: 0.5rem;
+}

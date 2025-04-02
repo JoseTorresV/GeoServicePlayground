@@ -1,0 +1,8 @@
+/* src/app/components/map/map.component.css */
+.map-container {
+    width: 100%;
+    /* height: calc(100vh - 1vh); */
+    height: 100vh;
+    position: absolute;
+  }
+  

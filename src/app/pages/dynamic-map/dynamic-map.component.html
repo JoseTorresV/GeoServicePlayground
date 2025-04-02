@@ -1,0 +1,25 @@
+<div style="position: relative; height: 100%; width: 100%;">
+    <div class="linkInput">
+        <h2 style="margin: 0 0 0.5rem;">Mappa di test</h2>
+        <form (ngSubmit)="updateMap()">
+            <div class="marginInfo">
+                <label for="serviceType">Tipo di Servizio:</label>
+                <select id="serviceType" [(ngModel)]="selectedService" name="serviceType" required>
+                    <option value="XYZ">XYZ</option>
+                    <option value="WMS">WMS</option>
+                </select>
+            </div>
+            <div class="marginInfo">
+                <label for="url">URL:</label>
+                <input id="url" type="text" [(ngModel)]="inputUrl" name="url" required />
+            </div>
+            <div class="marginInfo" *ngIf="selectedService === 'WMS'">
+                <label for="layerName">Nome del Layer:</label>
+                <input id="layerName" type="text" [(ngModel)]="inputLayerName" name="layerName" required />
+            </div>
+            <button type="submit">Aggiorna Mappa</button>
+        </form>
+    </div>
+
+    <app-map [layersConfig]="layersConfig" [center]="center" [zoom]="zoom"></app-map>
+</div>
