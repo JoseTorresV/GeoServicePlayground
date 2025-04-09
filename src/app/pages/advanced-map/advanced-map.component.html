@@ -1,0 +1,35 @@
+<h2>Advanced Map Explorer</h2>
+    
+<!-- Sezione: Navigazione della Posizione -->
+<div class="location-navigator">
+  <form (ngSubmit)="onLocationSearch()">
+    <label for="locationInput">
+      Inserisci città o coordinate (es. "Roma" oppure "12.4964,41.9028"):
+    </label>
+    <input id="locationInput" type="text" [(ngModel)]="locationInput" name="locationInput" required />
+    <button type="submit">Vai</button>
+  </form>
+</div>
+
+<!-- Sezione: Aggiunta di Overlay -->
+<div class="overlay-manager">
+  <h3>Aggiungi Overlay</h3>
+  <form (ngSubmit)="addOverlayLayer()">
+    <label for="overlayServiceType">Tipo Layer:</label>
+    <select id="overlayServiceType" [(ngModel)]="overlayServiceType" name="overlayServiceType" required>
+      <option value="XYZ">XYZ</option>
+      <option value="WMS">WMS</option>
+    </select>
+    <label for="overlayUrl">URL:</label>
+    <input id="overlayUrl" type="text" [(ngModel)]="overlayUrl" name="overlayUrl" required />
+    <div *ngIf="overlayServiceType === 'WMS'">
+      <label for="overlayLayerName">Nome del Layer:</label>
+      <input id="overlayLayerName" type="text" [(ngModel)]="overlayLayerName" name="overlayLayerName" required />
+    </div>
+    <button type="submit">Aggiungi Overlay</button>
+  </form>
+</div>
+
+<!-- Sezione: Visualizzazione Mappa -->
+<app-map [layersConfig]="combinedLayers" [center]="center" [zoom]="zoom" style="width:100%; height:500px;"></app-map>
+<!-- <app-map style="display:block; width:100%; height:600px; border:1px solid red;"></app-map> -->
